@@ -39,25 +39,33 @@ class Quiz {
     }
 
     //call getContestantInfo( ) here
-    contestant.getPlayerInfo();
+    Contestant.getPlayerInfo();
 
     //write condition to check if contestantInfor is not undefined and code to add a note here
     if (allContestants !== undefined) {
       fill("Blue");
       textSize(20);
-      text ("*NOTE : Contestant who answere correct is highlighted in green colour",130,230);
+      text ("*NOTE : Contestant who answered correct is highlighted in green colour",130,230);
+
+      var displayposition = 230;
+
+      //write code to highlight contest who answered correctly
+      for (var plr in allContestants) {
+
+        displayposition+=30;
+
+        var correctAns = "2";
+  
+        if (correctAns === allContestants[plr].answer) { fill("green"); }
+  
+        else { fill("red"); }
+
+        text (allContestants[plr].name + " : " + allContestants[plr].answer ,130,displayposition);
+
+      }
+
     }
 
-    //write code to highlight contest who answered correctly
-    for (var plr in allContestants) {
-
-      var correctAns = "2";
-
-      if (correctAns === allContestants[plr].answer) { fill("green"); }
-
-      else { fill("red"); }
-    }
-    
   }
 
 }
